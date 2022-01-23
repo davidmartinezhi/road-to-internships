@@ -1,0 +1,116 @@
+6. pag 72
+==== Best conceivable runtime (BCR) ====
+
+Considerar el mejor runtime concebible puede ofrecer una pista útil para algúnos problemas.
+BCR es la maxima eficiencia posible en el contexto del problema. Literal es la pregunta ¿como hacer menos pasos para conseguir el resultado?.
+El BCR no siempre se puede lograr, solo nos informa que no se puede hacer algo menor a eso.
+
+El mejor runtime concebible es, literalmente, el mejor runtime que pueda concebir una solución a un problema. 
+
+    Ejemplo 1:
+        Quieres saber los elementos que se repiten en 2 arrays diferentes(array A y array B).
+        Los arrays tienen size A y size B.
+
+        Inmediatamente sabes que el mejor runtime posible es O(A+B), porque debes a fuerzas tocar 
+        cada elemento en ambas listas, almenos una vez.
+
+    Ejemplo 2:
+        Quieres imprimir todas las posibles parejas en un array con size N. Sabes que para sacar el resultado,
+        cada elemento de la lista deberas pasar por el resto de los elementos.
+
+        input: [A, B, C] 
+        N = 3
+
+        output: [[A, A], [A, B], [A, C], [B, A], [B, B], [B, C], [C, A], [C, B], [C, C]]
+        N^2 = 9
+
+        Sabes que el mejor runtime posible es de O(N^2). Porque las parejas existentes son N^2.
+
+        Aunque pidiera un array donde no se repitan combinaciones de parejas, aún asi tendrias que pasar por 
+        ese valor y checar si ya esta en el valor que regresariamos en el output.
+
+
+Nota super importante:
+        
+    No confundir BEST CONCEIVABLE RUNTIME con BEST CASE RUNTIME.
+
+    Cuando escuches BCR, piensa en "concebible/conceivable". 
+
+    *The Best Conceivable Runtime is for a problem (and is largely a function of the inputs and outputs). 
+        It has no particular connection to a specific algorithm.
+        In fact, if you compute the Best Conceivable Runtime by thinking about what your algorithm does, you're probably doing something wrong.
+        
+    *The Best Case Runtime is for a specific algorithm (and is a mostly useless value)." 
+
+
+    ** Note that the best conceivable runtime is not necessarily achievable, It says only that you can't do better than it.**
+
+    Ejemplo del libro sobre como usarla:
+
+        Question: Given two sorted arrays, find the number of elements in common. 
+        The arrays are the same length and each has all distinct elements.
+
+        Let's start with a good example. We'll underline the elements in common.
+
+        A: 13 27 {35 40} 49 {55} 59
+        B: 17 {35} 39 {40 55} 58 60
+
+        A brute force algorithm for this problem is to start with each element in A and search for it in B. 
+        This takes O(N^2) time since for each of N elements in A, we need to do an O(N) search in B.
+
+        The BCR isO(N), because we know we will have to look at each element at least once and there are 2N total elements.
+        (If we skipped an element, then the value of that element could change the result. For example, if we never looked at the last value in B, then that 60 could be a 59.)
+
+        Let's think about where we are right now. We have anO(N^2) algorithm and we want to do better than that-potentially, but not necessarily, as fast as O(N).
+
+        Brute Force: O(N^2)
+        Optimal Algorithm: O(?)
+        BCR (best bonceivables runtime): O(N)
+
+        What is between O(N^2) andO(N)? Lots of things. Infinite things actually. 
+            We could theoretically have an algorithm that's O(N log(log(log(log(N))))). 
+            However, both in interviews and in real life, that runtime doesn't come up a whole lot.
+
+        *Try to remember this for your interview because it throws a lot of people off. 
+            Runtime is not a multiple choice question. Yes, it's very common to have a runtime that's O(log N),O(N),O(N log N),0(N2) or0(2N).
+            But you shouldn't assume that something has a particular runtime by sheer process of elimination. 
+            In fact, those times when you're confused about the runtime and so you want to take a guess-those are the times when you're most likely to have a non-obvious and less common runtime.
+            Maybe the runtime is 0(N2 K), where N is the size of the array and K is the number of pairs. 
+            ***Derive, don't guess.***
+
+        Most likely, we're driving towards anO(N) algorithm or anO(N log N) algorithm. What does that tell us?
+        If we imagine our current algorithm's runtime as O(N x N),then getting to O(N) or O(N x log N) might mean reducing that second O(N) in the equation to 0(1) or 0(log N).
+
+        *This is one way that BCR can be useful. We can use the runtimes to get a "hint" for what we need to reduce.
+
+        That second 0(N) comes from searching. The array is sorted. Can we search in a sorted array in faster than O(N) time?
+        Why, yes. Wecan use binary search to find an element in a sorted array in 0(log N) time.
+
+        We now have an improved algorithm of: O(N log N)
+
+        Brute force: O(n^2)
+        Optimal Algorithm: O(n log n)
+        BCR: O(n)
+
+        Can we do even better? Doing better likely means reducing that O(log N) to 0(1).
+        In general, we cannot search an array -even a sorted array- in better than 0(log N) time. 
+        This is not the general case though. We're doing this search over and over again.
+
+        **The BCR is telling us that we will never, ever have an algorithm that's faster than O(N). Therefore, any work we do in 0(N) time is a "freebie"-it won't impact our runtime.**
+
+        One of the tips there suggests precomputing or doing upfront work. Any upfront work we do in O(N) time is a freebie. It won't impact our runtime.
+        *Cada esfuerzo que de un poco menos del BCR es poco relevante, podrías eliminarlo, pero ya no es prioridad*
+
+        Our focus is still on reducing search from 0(log N) to 0(1). Any precomputation that's 0(N) or less is "free"
+
+        In this case, we can just throw everything in B into a hash table. 
+            This will take O(N) time. Then, we just go through A and look up each element in the hash table. 
+            This look up (or search) is 0(1), so our runtime is O(N).
+
+        Suppose our interviewer hits us with a question that makes us cringe: Can we do better?
+
+        No, not in terms of runtime. We have achieved the fastest possible runtime, therefore we cannot optimize the big O time. We could potentially optimize the space complexity.
+
+        **This is another place where BCR is useful. It tells us that we're "done" in terms of optimizing the runtime, and we should therefore turn our efforts to the space complexity.**
+
+        

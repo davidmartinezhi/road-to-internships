@@ -1,0 +1,96 @@
+Que esperar en la entrevista tecnica?
+
+        Las entrevistas deben ser dificiles, para probar a los candidatos.
+        Si no te sale alguna pregunta o ninguna, esta bien. Es normal y no es malo.
+
+        Estar atento a guía y consejos del entrevistador. El entrevistador puede tomar un
+        rol activo en la entrevista o no, todo depende de lo que busca en tí y si estas batallando.
+
+        Durante la entrevista y al practicar, se recomienda mucho el siguiente approach:
+
+
+Steps:
+        1.Listen
+
+                //Escuchar el problema y asegurarse de haberlo escuchado correctamente
+                //Hacer preguntas sobre cualquier cosa con la que no estes segur@.
+
+                //Entender con cuidado el problema y anotar información importante para no perderla
+                    //Escribir los requerimientos y preguntar sobre constrains
+
+
+        /* Paso 2 y 3 se pueden intercalar, para la planeación de un brute force approach*/
+
+
+        2.Example
+
+                //Dibujar un ejemplo para demostrar y tu saber, como funcionará
+                //Dibujar un ejemplo grande y coherente con el problema
+                //No dibujar special case, o hacerlo de manera explicita para tomar notas
+
+                El ejemplo debe ser:
+                    //Especifico y usar la data que viene en el problema
+                    //Que sea un ejemplo de buen tamaño
+                    //Que no sea un caso especial.
+                
+        3.Brute Force
+
+                //Declara solución con brute force y como funcionaria.
+                    //Esta bien si la primera solución no es la más optima.
+                    //Aunque parezca obvio. Siempre declarar el brute force, como funcionaria y el big O.
+
+                //Brute Force puede ser un buen punto de inicio para optimizar.
+
+                //Aunque sea una solución no muy eficiente, el brute force es muy valioso
+                  porque es el punto inicial de optiizaciones y te ayuda a comprender bien el tema. 
+        
+        4.Optimize
+                Despues de sacar el brute force algorithm, es importante optimizar
+
+                //Buscar por información que no utilizamos(ej. el array esta ordenado?)
+
+                //Usar otro ejemplo (puede ayudar a ver un patron en el problema)
+
+                //Make Time vs Space. tradeoffs (ej. usar mas variables para aumentar velocidad)
+
+                //Precompute information, is there a way to make it easier to solve and more efficient in the long run. (ej. sorting, modifying/manipulating data).
+
+                //Use hash tables (They are highly used in interview questions and should be on top of your mind).
+
+                //Think about the best conceivable runtime
+
+            //*Atacar el brute force con "optimize and solve techniques"
+        
+        5.Walk Through
+
+                //Despues de pensar en un algoritmo optimo, no solo aventarse a programar.
+                //Tomarme un tiempo para solificar mi entendimiento del algoritmo y su funcionamiento.
+                //Recorrer el algoritmo y checar la estructura de tu codifo (que hace cada sección) y como se
+                    mueve la info.
+                //Se puede escribir pseudo codigo, pero de preferencia comenzar a programar rapido.
+
+            //*Si no entiendes que estas por escribir, vas a batallar más para programar la solución,
+                te va a tomar más tiempo el teminar de programar y es más probable que hagas errores grandes.
+        
+        6.Implement
+
+                //Ahora que ya pensaste en el algoritmo y sabes exactamente que es lo que vas a escribir.
+
+                //Write beautiful code
+                    //Divide el codigo en modulos, como funciones
+                    //Error check. Escribir una lista de "to do" y explicar que es lo que quieres checar.
+                    //Usar otros structs/classes si es necesario, no necesariamente debes escribir todos los detalles de la clase, con dar a entender lo que hace y si al final tienes tiempo, hacerlo.
+                    //Usar buenos nombre de variables
+
+            //*Si te confundes, siempre puedes regresar a tu ejemplo (paso 2) y algoritmo propuesto (paso 5)
+        
+        7.Test
+
+                //No darle submit, sin haberlo checado antes
+                //Approach
+                    //Start with a conceptual test, leer y analizar lo que hace cada linea de codigo, el codigo hace lo que crees que deberia hacer?.   
+                    //Checar codigo que se ve extraño, por ejemplo: array.size() - 2, o que el loop comience en int i = 1.
+                    //Hot Spots. you've coded long enough to know what things are likely to cause problems. Base cases in recursive code. Integer division. Null nodes in binary trees. The start and end of iteration through a linked list. Double check that stuff.
+        
+                    //Ahora usar un ejemplo pequeño, no como el de el paso 2(example). Probablemente descubras bugs, pero será mas rapido solucionarlos.
+                    //Extreme cases, and special cases: checar codigo contra nullpointers, single element values.

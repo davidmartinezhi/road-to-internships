@@ -1,0 +1,19 @@
+2. pag 69
+==== DIY (Do It Yourself) ===
+
+    "I've seen this come up countless times with candidates.Their computer algorithm is extraordinarily slow, 
+    but when asked to solve the same problem manually, they immediately do something quite fast." 
+                                                    - Gaylee Laakmann (Cracking The Coding Interview).
+
+    Estes approach consiste en que tu mismo resuelvas el problema a mano y con tu mente. Sin pensar en computadoras o programación.
+        - Recomiendo hacerlo en papel, ej. ver el array que tienes y con cada paso de logica lo escribes de nuevo y vez como va quedando.
+        - Trata de resolverlo de manera intuitiva en un ejemplo real (que sea relevante al problema y grande).
+        - De esta manera tu cerebro encuentra patrones y approaches eficientes.
+
+    Literalmente tu ver el input y de manera intuitiva sacar el output del ejemplo que te dan(o según lo que te piden que regreses).
+        - Pensando paso a paso, que estas haciendo.
+
+    Una vez que consigues un approach que te lleva a la respuesta.
+    
+    Debes estar atent@ a la logica que esta siguiendo tu cerebro para llegar al resultado, de tal manera que puedeas replicar esa logica en tu programa.
+

@@ -1,0 +1,227 @@
+Optimize and Solve techniques
+
+1) BUD (Bottlenecks, Unneccesary Work, Duplicate Work) pag. 67
+2) DIY (Do It Yourself) pag. 69
+3) Simplify and Generalize pag. 71
+4) Base Case and Build pag. 71
+5) Data Structure Brainstorm pag. 72
+6) Best conceivable rutime (BCR) pag. 72
+
+1)Bud (Bottlenecks, Unneccesary Work, Duplicate Work) pag.67
+
+    Estas son las 3 cosas más comunes en las que un algoritmo pierde "tiempo" haciendo.
+    Puedes buscar estas 3 cosas en tu brute force algorithm, o el mejor algoritmo actual.
+
+    *Bottlenecks (Cuello de botella)
+
+        Esta parte se resume en "El proceso menos eficiente del algoritmo, como puedo modificarlo para que cumpla el objetivo con más eficiencia"
+
+        Es una parte de tu algotimo que hace más lenta la ejecución en general.
+        Optimizar un cuello de botella puede hacer una gran diferencia en el runtime.
+
+        2 tipos de Bottlenecks:
+
+            1) Tienes trabajo que se ejecuta una sola vez, pero frena mucho la velocidad.
+                        Ejemplo del libro:
+
+                        Tienes un algoritmo de 2 pasos
+                            -El primer paso tiene un Big O de O(N log N)
+                            -El segundo paso tiene un Big O de O(N)
+
+                        *Este consejo es bueno para poder tomar desiciones rapido, sobre que parte del programa
+                            atacar primero, para optimizar.
+
+            2) Tienes mucho trabajo que se repite, cuando se podría hacer más rapido.
+                        Ejemplo del libro:
+
+                        Buscar elementos te toma O(N) de tiempo, talvez lo puedes reducir a O(log N) o O(1).
+                        *Depende de la situación, pero aquí es donde puedes aplicar binary search o hashtables.
+
+
+    *Unneccesary Work
+
+        Esto se resume en la frase "Es este trabajo necesario para conseguir el objetivo? De que manera lo puedo simplificar"
+
+        Un ejemplo de trabajo inecesario es seguir recorriendo un array cuando ya encontraste la situación.
+        Puedes poner un break, que te saque del loop.
+
+        Si tienes for loops anidados, podrias buescar otra estructura de datos o un metodo algebraico.
+        Que te haga reducir el O(N^2) a O(N).
+
+
+    *Duplicate Work
+
+        Esto se refiere en pocas palabras, en "Puedo de alguna manera reducir los esfuerzos a la mitad? para conseguir el objetivo"
+        
+        Un ejemplo de duplicate work es encontrar encontrar coincidencias en 4 arrays.
+
+        En lugar de anidar 4 for loops en busca de coincidencias    O(n^4)
+
+        anidas 2 loops, para encontrar la coincidencia de 2 arrays O(n^2)
+
+        Repites el mismo proceso con los otros 2 arrays O(n^2)
+
+        al final comparas ambos resultados. O(n)
+
+        Runtime final de la solución optimizada: O(n^2)
+
+        
+
+
+        
+
+
+2) DIY (Do It Yourself) pag. 69
+
+    "I've seen this come up countless times with candidates.Their computer algorithm is extraordinarily slow, 
+    but when asked to solve the same problem manually, they immediately do something quite fast." 
+                                                    - Gaylee Laakmann (Cracking The Coding Interview).
+
+    Estes approach consiste en que tu mismo resuelvas el problema a mano y con tu mente. Sin pensar en computadoras o programación.
+        - Recomiendo hacerlo en papel, ej. ver el array que tienes y con cada paso de logica lo escribes de nuevo y vez como va quedando.
+        - Trata de resolverlo de manera intuitiva en un ejemplo real (que sea relevante al problema y grande).
+        - De esta manera tu cerebro encuentra patrones y approaches eficientes.
+
+    Literalmente tu ver el input y de manera intuitiva sacar el output del ejemplo que te dan(o según lo que te piden que regreses).
+        - Pensando paso a paso, que estas haciendo.
+
+    Una vez que consigues un approach que te lleva a la respuesta.
+    
+    Debes estar atent@ a la logica que esta siguiendo tu cerebro para llegar al resultado, de tal manera que puedeas replicar esa logica en tu programa.
+
+
+3) Simplify and Generalize pag. 71
+
+    Adaptas y atacas el problema de una manera que lo comprendes mejor, 
+    para tener bases solidas en tu entendimiento del problema y la posible solución.
+    Luego ya lo adaptas al problema original.
+
+    Este enfoque es de varios pasos. 
+        1) Simplificamos o retocamos constrains (como los data type)
+        2) Resolvemos la versión simplificada del problema
+        3) Ahora tratamos de adaptar el algoritmo a la versión más compleja
+
+    *Un ejemplo de esto es ver problemas de leetcode como Two-Sum 4 y checar el Two-sum 2.
+    *primero resolver el problema de una manera comprensible y luego subir el nivel una vez ya familiarizados con el.
+
+
+4) Base Case and Build pag. 71
+
+    Esta tecnica se refiere a sacar la solución para el problema en un caso base, 
+    y comenzár a construir la solución más compleja a partir de esta.
+
+    Ejemplo del libro:
+
+        "Design an algorithm to print all permutations of a string. 
+        For simplicity, assume all characters are unique."
+
+        Consider a test string "abcdef":
+
+            case 1 ("a") -> {"a"}
+            case 2 ("ab") -> {"ab", "ba"}
+            case 3 ("abc") -> ?
+
+            Ahora si ya tenemos la solución para "ab", como la podemos sacar para "abc"
+            Bueno la letra extra es c, entonces solo podemos colocarla en todas las posibles posiciones
+
+            P("abc") = insert "c" into all locations of all strings in P("ab") 
+            P("abc") = insert "c" into all locations of all strings in {"ab","ba"} 
+            P("abc") = merge({"cab", ""acb", "abc"}, {"cba", abca", bac"})
+            P("abc") = {"cab", "acb", "abc", "cba", "bca", bac"}
+
+        Now that we understand the pattern, we can develop a general recursive algorithn1:
+            We generate all permutations of a string s1...sn by "chopping off"
+            the last character and generating all permutations of s1...sn-1. 
+            Once we have the list of all permutations of s1sn-1, we iterate through this list. 
+            For each string in it, we insert Sn into every location of the string.
+
+        Base Case and Build algorithms often lead to natural recursive algorithms.
+
+
+5) Data Structure Brainstorm pag. 72
+
+    -Esta approach consiste en checar una lista con estructuras de datos y observar como podemos aplicar cada una en nuestro problema.
+    -Es util porque una estructura de datos puede convertir un problema en algo trivial.
+
+    "This approach is certainly hacky, but it often works" - Gaylee Laakmann (Cracking The Coding Interview).
+                        
+    *Note that the more problems you do, the more developed your instinct on which data structure to apply will be. 
+     You will also develop a more finely tuned instinct as to which of these approaches is the most useful
+        
+    Ejemplo del libro:
+
+         "Numbers are randomly generated and stored into an (expanding) array. 
+          How would you keep track of the median?"
+
+         Our data structure brainstorm might look like the following:
+
+            - Linked list? Probably not. Linked lists tend not to do very well with accessing and sorting numbers.
+
+            - Array? Maybe, but you already have an array. Could you somehow keep the elements sorted? 
+              That's probably expensive. Let's hold off on this and return to it if it's needed.
+
+            - Binary tree? This is possible, since binary trees do fairly well with ordering. 
+              In fact, if the binary search tree is perfectly balanced, the top might be the median. 
+              But, be careful-if there's an even number of elements, the median is actually the average of the middle two elements. 
+              The middle two elements can't both be at the top. This is probably a workable algorithm, but let's come back to it.
+
+            - Heap? A heap is really good at basic ordering and keeping track of max and mins. 
+              This is actually interesting-if you had two heaps, you could keep track of the bigger half and the smaller half of the elements. 
+              The bigger half is kept in a min heap, such that the smallest element in the bigger half is at the root. 
+              The smaller half is kept in a max heap, such that the biggest element of the smaller half is at the root. 
+              Now, with these data structures, you have the potential median elements at the roots. If the heaps are no longer the same size, you can quickly "rebalance" the heaps by popping an element off the one heap and pushing it onto the other.
+
+
+6) Best conceivable runtime (BCR) pag. 72
+
+    Considerar el mejor runtime concebible puede ofrecer una pista útil para algúnos problemas.
+    BCR es la maxima eficiencia posible en el contexto del problema. Literal es la pregunta ¿como hacer menos pasos para conseguir el resultado?.
+    El BCR no siempre se puede lograr, solo nos informa que no se puede hacer algo menor a eso.
+
+    El mejor runtime concebible es, literalmente, el mejor runtime que pueda concebir una solución a un problema. 
+
+    Emeplo 1:
+        Quieres saber los elementos que se repiten en 2 arrays diferentes(array A y array B).
+        Los arrays tienen size A y size B.
+
+        Inmediatamente sabes que el mejor runtime posible es O(A+B), porque debes a fuerzas tocar 
+        cada elemento en ambas listas, almenos una vez.
+
+    Ejemplo 2:
+        Quieres imprimir todas las posibles parejas en un array con size N. Sabes que para sacar el resultado,
+        cada elemento de la lista deberas pasar por el resto de los elementos.
+
+        input: [A, B, C] 
+        N = 3
+
+        output: [[A, A], [A, B], [A, C], [B, A], [B, B], [B, C], [C, A], [C, B], [C, C]]
+        N^2 = 9
+
+        Sabes que el mejor runtime posible es de O(N^2). Porque las parejas existentes son N^2.
+
+        Aunque pidiera un array donde no se repitan combinaciones de parejas, aún asi tendrias que pasar por 
+        ese valor y checar si ya esta en el valor que regresariamos en el output.
+
+
+    Nota super importante:
+        
+        No confundir BEST CONCEIVABLE RUNTIME con BEST CASE RUNTIME.
+
+        Cuando escuches BCR, piensa en "concebible". 
+
+        *The Best Conceivable Runtime is for a problem (and is largely a function of the inputs and outputs). 
+            It has no particular connection to a specific algorithm.
+            In fact, if you compute the Best Conceivable Runtime by thinking about what your algorithm does, you're probably doing something wrong.
+        
+        *The Best Case Runtime is for a specific algorithm (and is a mostly useless value)." 
+
+
+       ** Note that the best conceivable runtime is not necessarily achievable, It says only that you can't do better than it.**
+
+
+    
+
+
+    
+
+    

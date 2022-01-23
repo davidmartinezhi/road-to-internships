@@ -1,0 +1,134 @@
+1. pag 67
+==== BUD ====
+
+Estas son las 3 cosas más comunes en las que un algoritmo pierde "tiempo" haciendo.
+Puedes buscar estas 3 cosas en tu "brute force algorithm", o el mejor algoritmo actual.
+
+1)Bottlenecks
+2)Unneccesary Work
+3)Duplicate Work
+    
+
+1) Bottlenecks (Cuello de botella)
+
+    Esta parte se resume en "El proceso menos eficiente del algoritmo, como puedo modificarlo para que cumpla el objetivo con más eficiencia"
+
+    Es una parte de tu algotimo que hace más lenta la ejecución en general.
+    Optimizar un cuello de botella puede hacer una gran diferencia en el runtime.
+
+    Existen 2 tipos de Bottlenecks:
+
+
+        1. Tienes trabajo que se ejecuta una sola vez, pero frena mucho la velocidad.
+
+            Ejemplo del libro:
+
+            Tienes un algoritmo de 2 pasos:
+                    -El primer paso tiene un Big O de O(N log N)
+                    -El segundo paso tiene un Big O de O(N)
+
+            No importa si puedes hacer más eficiente el segundo paso, el primer paso
+            es el cuello de botella que hace al algoritmo tener un Big O de (N log N).
+
+            Deberías checar si el primer paso puede ser mejorado, antes de siquiera pensar en
+            mejorar el segundo paso.
+
+            *Este consejo es bueno para poder tomar desiciones rapido, sobre que parte del programa atacar primero, para optimizar.
+                    
+
+        2. Tienes mucho trabajo que se repite, cuando se podría hacer más rapido.
+            
+            Ejemplo del libro:
+
+            Buscar elementos te toma O(N) de tiempo, talvez lo puedes reducir a O(log N) o O(1).
+            *Depende de la situación, pero aquí es donde puedes aplicar binary search o hashtables.
+
+
+2) Unneccesary Work
+
+    Esto se resume en la frase "Es este trabajo necesario para conseguir el objetivo? De que manera lo puedo simplificar"
+
+    Un ejemplo de trabajo inecesario es seguir recorriendo un array cuando ya encontraste la situación.
+    Puedes poner un break, que te saque del loop.
+
+    Si tienes for loops anidados, podrias buescar otra estructura de datos o un metodo algebraico.
+    Que te haga reducir el O(N^2) a O(N).
+
+    Ejemplo del libro:
+
+        A brute force solution will just have four nested for loops. Something like:
+        n = 1000
+        for a from 1 to n
+            for b from 1 to n
+                for c from 1 to n
+                    for d from 1 to n
+                        if a3 + b3 ==c3 + d3 
+                            print a, b, c,d
+            
+
+        Example: Print all positive integer solutions to the equation a3 + b3 c3 + d3 where a, b, c, and d are integers between 1 and 1000.
+        This algorithm iterates through all possible values of a, b, c, and d and checks if that combination happens to work.
+        It's unnecessary to continue checking for other possible values of d.
+        Only one could work. We should at least break after we find a valid solution.
+
+        n=1000
+        for a from 1 to n
+            for b from 1 to n
+                for c from 1 to n
+                    for d from 1 to n 
+                        if a3 +b3 ==c3 +d3
+                            print a, b, c,d
+                            break// break out ofd's loop
+            
+        This won't make a meaningful change to the runtime-our algorithm is still O(N4)-but it's still a good, quick fix to make.
+            
+
+3) Duplicate Work
+
+    Esto se refiere en pocas palabras, en "Puedo de alguna manera reducir los esfuerzos a la mitad? para conseguir el objetivo"
+        
+    Un ejemplo de duplicate work es encontrar encontrar coincidencias en 4 arrays.
+    Puedes buecar coincidencias primero entre los arrays en grupos de 2
+    Luego coincidencias entre esos 2 grupos.
+
+    Ejemplo del libro:
+
+        Using the same problem and brute force algorithm as above, let's look for duplicated work this time.
+
+        The algorithm operates by essentially iterating through all (a, b) pairs and 
+        then searching all (c, d) pairs to find if there are any matches to that (a, b) pair.
+
+        Why do we keep on computing all (c, d) pairs for each (a, b) pair?We should just create the list of
+        (c,d) pairs once.Then, when we have an (a,b) pair, find the matches within the ( c,d) list.
+        We can quickly locate the matches by inserting each ( c, d) pair into a hash table that maps from the sum to the pair
+
+        n = 1000
+        for c from 1 to n
+            for d from 1 to n
+                result = c^3 +d^3
+                append (c, d) to list at value map[result]
+
+        for a from 1 to n
+            for b from 1 to n
+                result= a^3 + b^3
+                list= map.get(result) 
+                for each pair in list
+                    print a, b, pair
+
+
+        Actually, once we have the map of all the ( c, d) pairs, we can just use that directly. We don't need to
+        generate the (a, b) pairs. Each (a, b) will already be in the map.
+
+        n = 1000
+        for c from 1 to n
+            for d from 1 to n
+                result = c^3 +d^3
+                append (c, d) to list at value map[result]
+            
+        for each result, list in map   
+            for each pairl in list 
+                for each pair2 in list
+                    print pairl, pair2
+
+            
+        Checando el unnecessary  y duplicate work, bajamos de O(N^4) a O(N^2)

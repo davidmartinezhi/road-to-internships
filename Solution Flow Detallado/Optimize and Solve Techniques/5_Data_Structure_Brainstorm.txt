@@ -1,0 +1,33 @@
+5. pag 72
+==== Data Structure Brainstorm ====
+
+Esta approach consiste en checar una lista con estructuras de datos y observar como podemos aplicar cada una en nuestro problema.
+Es util porque una estructura de datos puede convertir un problema en algo trivial.
+
+"This approach is certainly hacky, but it often works" - Gaylee Laakmann (Cracking The Coding Interview).
+                        
+*Note that the more problems you do, the more developed your instinct on which data structure to apply will be. 
+You will also develop a more finely tuned instinct as to which of these approaches is the most useful
+        
+Ejemplo del libro:
+
+    "Numbers are randomly generated and stored into an (expanding) array. 
+    How would you keep track of the median?"
+
+    Our data structure brainstorm might look like the following:
+
+        - Linked list? Probably not. Linked lists tend not to do very well with accessing and sorting numbers.
+
+        - Array? Maybe, but you already have an array. Could you somehow keep the elements sorted? 
+              That's probably expensive. Let's hold off on this and return to it if it's needed.
+
+        - Binary tree? This is possible, since binary trees do fairly well with ordering. 
+            In fact, if the binary search tree is perfectly balanced, the top might be the median. 
+            But, be careful-if there's an even number of elements, the median is actually the average of the middle two elements. 
+            The middle two elements can't both be at the top. This is probably a workable algorithm, but let's come back to it.
+
+        - Heap? A heap is really good at basic ordering and keeping track of max and mins. 
+            This is actually interesting-if you had two heaps, you could keep track of the bigger half and the smaller half of the elements. 
+            The bigger half is kept in a min heap, such that the smallest element in the bigger half is at the root. 
+            The smaller half is kept in a max heap, such that the biggest element of the smaller half is at the root. 
+            Now, with these data structures, you have the potential median elements at the roots. If the heaps are no longer the same size, you can quickly "rebalance" the heaps by popping an element off the one heap and pushing it onto the other.

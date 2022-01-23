@@ -1,0 +1,34 @@
+4. pag 71
+==== Base Case and Build ====
+
+    Esta tecnica generalmente es utilizada para algoritmos que requieran recursividad
+
+    Esta tecnica consiste en sacar la solución para el problema en un caso base, 
+    y comenzár a construir la solución más compleja a partir de esta.
+
+    Ejemplo del libro:
+
+        "Design an algorithm to print all permutations of a string. 
+        For simplicity, assume all characters are unique."
+
+        Consider a test string "abcdef":
+
+            case 1 ("a") -> {"a"}
+            case 2 ("ab") -> {"ab", "ba"}
+            case 3 ("abc") -> ?
+
+        Ahora si ya tenemos la solución para "ab", como la podemos sacar para "abc"
+        Bueno la letra extra es c, entonces solo podemos colocarla en todas las posibles posiciones
+
+            P("abc") = insert "c" into all locations of all strings in P("ab") 
+            P("abc") = insert "c" into all locations of all strings in {"ab","ba"} 
+            P("abc") = merge({"cab", ""acb", "abc"}, {"cba", abca", bac"})
+            P("abc") = {"cab", "acb", "abc", "cba", "bca", bac"}
+
+        Now that we understand the pattern, we can develop a general recursive algorithn1:
+            We generate all permutations of a string s1...sn by "chopping off"
+            the last character and generating all permutations of s1...sn-1. 
+            Once we have the list of all permutations of s1sn-1, we iterate through this list. 
+            For each string in it, we insert Sn into every location of the string.
+
+        Base Case and Build algorithms often lead to natural recursive algorithms.

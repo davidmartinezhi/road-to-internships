@@ -1,0 +1,17 @@
+3. pag 71
+==== Simplify and Generalize ====
+
+    Consiste en primero resolver el problema de una manera comprensible,
+    luego aumentar la complejidad una vez ya estamos familiarizados con la solución simplificada.
+
+    Este enfoque es de varios pasos. 
+        1) Simplificamos o retocamos constrains (como los data type)
+        2) Resolvemos la versión simplificada del problema
+        3) Ahora tratamos de adaptar el algoritmo a la versión más compleja
+
+    Adaptas y atacas el problema de una manera que lo comprendes mejor, 
+    para tener bases solidas en tu entendimiento del problema y la posible solución.
+
+    Luego ya lo adaptas al problema original.
+
+    *Un ejemplo de esto es ver problemas de leetcode como Two-Sum 4 y checar el Two-sum 2.
