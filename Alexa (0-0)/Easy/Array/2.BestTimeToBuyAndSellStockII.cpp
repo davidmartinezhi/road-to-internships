@@ -1,4 +1,5 @@
 //Alexa Arreola 26/01/2022
+//Tiempo: 50 min
 
 //1. Info
 //Tomando en cuenta que son los valores de compra-venta de stocks en el mercado, maximizar la ganancia y regresar valor
