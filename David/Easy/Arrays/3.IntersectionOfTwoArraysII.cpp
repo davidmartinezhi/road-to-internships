@@ -97,3 +97,9 @@ public:
         return result;
     }
 };
+
+/*
+Nota:
+    Terminado en 20 minutos.
+    No saltar tan rapido de una solución a otra menos eficiente, cuando siento que voy por buen camino
+*/
