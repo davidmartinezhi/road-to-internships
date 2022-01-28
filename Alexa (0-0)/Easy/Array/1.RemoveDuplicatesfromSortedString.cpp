@@ -1,3 +1,5 @@
+//Alexa Arreola 25/01/2022
+//Tiempo: 50 min
 //1. Escuchar info
 //Remover duplicados, regresar cantidad de numeros k sin duplicar, modificar el mismo array para que los primeros numeros sean los útiles, no importa los valores que se encuentren después de k
 //Retricciones: memory O(1)
