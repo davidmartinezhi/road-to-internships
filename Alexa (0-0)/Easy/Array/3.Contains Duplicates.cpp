@@ -1,5 +1,6 @@
 /*
 Alexa Arreola 27/01/2022
+Tiempo: 26 minutos
 1. Regresa true si se repite más de una vez cualquier valor, de lo contrario false.
 
 Constraints:
@@ -32,7 +33,8 @@ class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
         
-        //Hashmap: key, valor
+        //HashTable: key, valor
+        /*
         
         unordered_map<int, int> mapita;
         
@@ -40,7 +42,9 @@ public:
             
             
             //cout << mapita[nums[i]]<< " ";
+            
             mapita[nums[i]]++;
+            
             //cout << mapita[nums[i]]<< endl;
             
             if(mapita[nums[i]]>1){
@@ -48,8 +52,27 @@ public:
             }
         }
         return false;
+        */
         
+        //Ordena menor a mayor  N*log2(N) 
+        sort(nums.begin(), nums.end());
+        int aux= nums[0];
         
+        for(int i = 1; i <nums.size(); i++){
+            
+            //si num es igual al siguiente return true
+            if(aux == nums[i]){
+                return true;
+            }
+            
+            //aumenta aux
+            else{
+                aux = nums[i];
+            }
+            
+        }
+        
+        return false;
         
     }
 };
