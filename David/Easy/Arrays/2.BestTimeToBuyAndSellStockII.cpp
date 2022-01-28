@@ -68,6 +68,8 @@ public:
        
         /*
         //fixed window
+        //runtime: O(n)
+        //memory: O(1)
         int maxProfit = 0;
         
         for(int i = 0; i < prices.size() - 1; i++){
@@ -83,6 +85,8 @@ public:
         
         
         //Dynamic window  
+        //runtime: O(n)
+        //memory: O(1)
         int maxProfit = 0;
         
         //O(n)
@@ -116,3 +120,8 @@ public:
         
     }
 };
+
+/*
+Repasar sliding window technique y tratar de simplificar el codigo para que sea má entendible
+    No solo para el entrevistador, sino también para mí al programarlo.
+*/
