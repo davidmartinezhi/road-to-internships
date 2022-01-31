@@ -1,6 +1,7 @@
 #include <iostream>
 #include <unordered_map>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -83,7 +84,7 @@ public:
         //Sorting the array
         
         //runtime: O(n log n)
-        std::sort(nums.begin(), nums.end()); //Sort numbers
+        sort(nums.begin(), nums.end()); //Sort numbers
         
         //runtime: O(n)
         for(int i = 1; i < nums.size(); i++){   //Traverse from the second element, if it exists
