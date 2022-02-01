@@ -130,3 +130,18 @@ public:
     }
     */
 };
+
+/*
+Nota:
+    Termine usando una variación del sliding window technique.
+    Logra el trabajo, pero no es optimo.
+
+    El concepto de tener un apuntador fijo y otro que se recorre es simple. Si lo pense al inicio
+    pero dude de que fuera a servir, no me hizo sentido en la cabeza que fuera a funcionar.
+
+    Pero funciona y debería de intentar probarlo aunque sienta algo de incertidumbre.
+
+    Sirvio mucho hacer la prueba con Alexa de porque marcarba error al recorrer desde el indice 0, en la respuesta optima
+    El apuntador que recorre siempre debe ser mayor o igual al fijo.
+
+*/
