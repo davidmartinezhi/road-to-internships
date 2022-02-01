@@ -50,7 +50,7 @@ public:
             Un solo lemento en el array
         */
         
-        
+        /*
         //Array de solo un elemento
         if(nums.size() == 1){
             return;
@@ -86,12 +86,47 @@ public:
             
             i++;
         }
+        */
+        
+        
+        
+
+        //Index
+        //Solución Alexa :)
+        //Runtime: O(n)
+        //Memory: O(1)
+        
+        int index1 = 0;
+        
+        //[2, 0, 3, 4, 0, 0, 5]
+        //[1,0,1]
+        //[1,1,0]
+        
+        //Recorro toda la lista a partir del segundo index. O(n)
+        for(int i = 1; i < nums.size(); i++){
+            
+            //Si el primer valor es diferente de 0 lo recorremos 1 espacio
+            if(nums[index1] != 0){
+                index1++;
+            }
+            
+            //Si el valor en index1 es 0 y el valor en nums[i] es diferente de 0
+            if(nums[index1] == 0 && nums[i] != 0){
+
+                nums[index1] = nums[i]; //Hacemos switch de valores
+                nums[i] = 0;
+                index1++;
+
+            }
+        }
+        
+    }
     
-    
+    /*
     void swap(vector<int> & nums, int i, int j){
         int aux = nums[i];
         nums[i] = nums[j];
         nums[j] = aux;
     }
-    
+    */
 };
