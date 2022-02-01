@@ -1,1 +1,6 @@
 SIUUUU
+
+
+To Do:
+-Estudiar y practicar recursividad.
+-Investigar sobre bit manipulation
