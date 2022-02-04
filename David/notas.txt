@@ -4,3 +4,5 @@ SIUUUU
 To Do:
 -Estudiar y practicar recursividad.
 -Investigar sobre bit manipulation
+-Checar ejercicios para practicar recorridos de matrices (Vamos mejorando, pero aún falta fluides en este tipo de problemas)
+-Agregar secciones sobre traversals y estructuras de datos.
