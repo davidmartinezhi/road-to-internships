@@ -66,7 +66,7 @@ public:
         */
         
         //Checamos columnas y renglones
-        
+        /*
         for(int i = 0; i < 9; i++){
             
             unordered_map<char,int> col;
@@ -126,4 +126,74 @@ public:
         
         return true;
     }
+}
+        */
+        
+        //Checa recorrido lineal primero y luego el recorrido en matrix
+        return (linearCheck(board) && subMatrixCheck(board));
+    }
+    
+    bool linearCheck(vector<vector<char>>& board){
+        //Runtime: O(9x9) = O(1)
+        //Memory: O(9) = O(1)
+        
+        for(int i = 0; i < 9; i++){
+            unordered_map<char, int> cols;
+            unordered_map<char, int> rows;
+            
+            
+            for(int j = 0; j < 9; j++){
+                
+                //Check Rows
+                if(board[i][j] != '.'){
+                    cols[board[i][j]]++;
+                    if(cols[board[i][j]] > 1) return false;
+                }
+                
+                //Check Columns
+                if(board[j][i] != '.'){
+                    rows[board[j][i]]++;
+                    if(rows[board[j][i]] > 1) return false;                    
+                }
+                
+            }
+            
+        }
+        
+        return true;
+    }
+        
+    
+    bool subMatrixCheck(vector<vector<char>>& board){
+        // runtime: O(3x3x3x3) = O(9x9) = O(1)
+        // memory: O(9)
+        
+        //i = (0, 3, 6)
+            //j = (0, 3, 6)
+        //Recorro las esquinas de la matrix
+        for(int i = 0; i < 9; i+= 3){
+            for(int j = 0; j < 9; j+=3){
+                
+                unordered_map<char, int> subM;
+            //Recorro las casillas de la submatrix
+                for(int k = 0; k < 3; k++){
+                    for(int h = 0; h < 3; h++){
+                        
+                        //Checo si la casilla actual tiene un valor diferente a puntito
+                        if(board[i+h][j+k] != '.'){
+                            subM[board[i+h][j+k]]++;    //Agrego el numero
+                            if(subM[board[i+h][j+k]] > 1) return false; //Si se repite, regreso false
+                        }
+                        
+                    }
+                }
+            }
+            
+        }
+        
+        
+        return true;
+        
+    }
+    
 };
