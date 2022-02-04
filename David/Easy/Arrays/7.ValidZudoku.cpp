@@ -197,3 +197,26 @@ public:
     }
     
 };
+
+/*
+
+Debemos practicar matrices, para poder movernos de manera fluida en ellas.
+
+    -Hacer una solución descansado en la mañana despues de desayunar si te da un super boost de creatividad y pensamiento.
+    -Podría ser beneficial estudiarlo cuando se tenga energia y tomar notas de patrones o info que pudimos haber usado antes para la solución.
+
+    Recorrido lineal salio muy rapido, en 35-40 minutos. Recorrido de subMatrices nos movio el tapete.
+    Fue buena idea pensar en recorrer las ezquinas al saltar de 3 en 3. Luego recorrer los indices 1x1.
+
+    Era el mismo patron, pero en lugar de hacerlo 9x9. Lo pudimos hacer 3x3 y lo hubieramos sacado rapido.
+    Cuando se me ocurriío el hacer 2 for loops anidados, fue porque pense en como recorrería una matriz 3x3.
+
+    Y lo hice con 2 for loops que iban de 0 a 2.
+
+    Luego pense, okay, así se recorre una matriz de 3. y ya tenemos como movernos atravez de las esquinas de la matriz
+    Entonces hacemos 4 for loops. 2 sond e 0 a 8 saltando de 3 en 3. Y 2 son de 0 a 2 saltando de 1 en 1.
+
+    Este tecnica venía incluida en las optimize and solve techniques. No olvidar de checar las optimize ans "SOLVE" techniques cuando exista alguna traba,
+        no se pierde nada.
+
+*/
