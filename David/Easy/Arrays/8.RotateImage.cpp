@@ -42,6 +42,8 @@ public:
             return;
         }
         
+        //Swap para desplegar valores de renglones como columnas
+        //runtime: O(n^2)
         for(int i = 0; i < n; i++){
             for(int j = i+1; j < n; j++){
                 int aux = matrix[i][j];
@@ -50,8 +52,9 @@ public:
             }
         }
         
-        
+        //Ordenamos los valores al voltearlos
         //Recorro cada renglon
+        //runtime: O(n^2)
         for(int i = 0; i < n; i++){
             
             int start = 0;
@@ -72,4 +75,6 @@ public:
 
 /*
 41 minutos
+runtime: O(n^2)
+memory: O(1)
 */
