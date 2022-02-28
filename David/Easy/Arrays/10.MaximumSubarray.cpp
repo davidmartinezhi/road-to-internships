@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 class Solution {
@@ -107,15 +106,36 @@ public:
         int maxSum = nums[0];  
         int sum = 0;
         
+        //runtime: O(n)
         for(int i = 0; i < nums.size(); i++){
             sum += nums[i]; //Agrego nuevo valor a la suma
             if(sum > maxSum) maxSum = sum;  //Si sum es mayor, actualizo maxSum
             if(sum < 0) sum = 0;    //Si sum es negativo, lo cambio a 0, para comenzar a contar de nuevo con el siguiente dato
             
-            //Si sum es positivo, se queda como está
+            //Si sum es positivo, se queda como está. Sin importar si es mayo a maxSum o no
         }
         
         return maxSum;
         
     }
 };
+/*
+Nota:
+
+    //Antes de solución optima
+    -Creo se resuelve con sliding window technique pero tengo duda sobre que condiciones utilizar
+     para saber si debo recorrer i o no.
+
+    -Brute force salio en 5 minutos
+
+    -Optimized Solution no pasaba todos los casos de prueba y me consumio todo el tiempo restante
+
+    -Debo volver a checar la logica del optimizedd solution, sino buscarla en youtube y poner atención en la comparación.
+
+    Ya soy bueno para saber el recorrido que se necesita en cada tipo de problema, en este caso la logica fue lo que me confundio, pero voy muy bien.
+
+    //Despues de solución optima
+    -Si es complicado conseguir la respuesta con sliding window technique.
+    -Después de investigar la respuesta más optima descubrí que es con un algoritmo que se llama Kadane's Algorithm)
+
+*/
