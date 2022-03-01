@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <limits.h>
 using namespace std;
 
 class Solution {
@@ -121,12 +122,14 @@ public:
         //Como se cuando debo usar sliding window technique o kadane's
         
         //Sliding window technique
+        /*
         int minWindow = INT_MAX;
         int currWindow = 0;
         int sum = 0;
         int j = 0;
         
         //Recorro la lista
+        //Runtime: O(n)
         for(int i = 0; i < nums.size(); i++){
             sum += nums[i]; //Agrego numero a la suma
             currWindow++;   //Incremento la ventana
@@ -151,9 +154,45 @@ public:
             }
         }
         
+        if(minWindow == INT_MAX) return 0;  //Si minWindow es INT_MAX, regreso 0
+        
+    return minWindow;
+    */
+
+    //Sliding window technique simplificando codigo
+
+        //Sliding window technique
+        //Memory: O(1)
+        int minWindow = INT_MAX;
+        int currWindow = 0;
+        int sum = 0;
+        int j = 0;
+        
+        //Recorro la lista
+        //Runtime: O(n)
+        for(int i = 0; i < nums.size(); i++){
+            sum += nums[i]; //Agrego numero a la suma
+            currWindow++;   //Incremento la ventana
+            
+            
+            while(sum >= target && j <= i){  //Mientras sea valida la condición
+
+                if(sum >= target){  //Si se cumple la condición
+                    if(currWindow < minWindow){ //Comparamos ventanas
+                        minWindow = currWindow;
+                    }
+                }  
+                
+                sum -= nums[j]; //Le resto el ultimo valor a la suma
+                currWindow--;   //Actualizo la ventana
+                j++;
+            }
+        }
+        
         if(minWindow == INT_MAX) return 0;
         
     return minWindow;
+
     }
 };
 
