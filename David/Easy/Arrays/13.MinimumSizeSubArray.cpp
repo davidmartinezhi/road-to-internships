@@ -198,5 +198,8 @@ public:
 
 /*
 Nota:
-    Terminado en 31 minutos
+    -Terminado en 31 minutos
+    -Como saber cuando utilizar Kadane's algorithm o dynamic window technique
+    -Perdí tiempo al intentarlo con Kadane's algorithm, con synamic window technique salío bastante rapido
+    -La logica dentro de la window estuvo un poco complicada, pero con el DIY lo saque bastante rapido
 */
