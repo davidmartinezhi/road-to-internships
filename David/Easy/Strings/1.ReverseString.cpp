@@ -48,6 +48,7 @@ public:
         int start = 0;
         int end = s.size() - 1;
         
+        //runtime: O(n)
         while(start < end){
             char aux = s[start];
             s[start] = s[end];
@@ -58,3 +59,6 @@ public:
         }
     }
 };
+/*
+Terminado 8 minutos
+*/
