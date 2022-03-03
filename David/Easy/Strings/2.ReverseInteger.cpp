@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits.h>
 using namespace std;
 
 class Solution {
@@ -91,6 +92,7 @@ public:
         //result variable
         int result = 0;
         
+        //O(n)
         while( x != 0){
             int last = x % 10;  //Last number of x
             x /= 10;    //Update x
@@ -112,3 +114,8 @@ public:
         return result;
     }
 };
+/*
+
+Terminado en 34 minutos
+
+*/
