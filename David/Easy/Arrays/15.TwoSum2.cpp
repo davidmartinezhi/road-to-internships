@@ -59,6 +59,7 @@ public:
         int start = 0;
         int end = numbers.size() - 1;
         
+        //Runtime: O(n)
         while(start < end){
             int sum = numbers[start] + numbers[end];
             
@@ -73,3 +74,6 @@ public:
         return {};
     }
 };
+/*
+24 minutos
+*/
