@@ -120,3 +120,11 @@ public:
         return result;
     }
 };
+
+/*
+nota:
+    Solución de alexa donde checa un character en todas las palabras
+    antes de continuar al siguiente, se me hizo una gran respuesta.
+
+    Incluso considero que fue más optimo que el mío, aunque ambos tienen en teoría el mismo big O.
+*/
