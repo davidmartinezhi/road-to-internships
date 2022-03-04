@@ -101,7 +101,7 @@ public:
         return prefix;
         */
         
-        //Ordeno la lista
+        //Ordeno la lista, sacada de los mejores running times en leetcode para este problema
         sort(strs.begin(), strs.end());
         string result = ""; //String auxiliar
         
