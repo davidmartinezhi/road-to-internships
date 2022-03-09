@@ -1,9 +1,9 @@
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 class Solution {
-public:
+    public:
     int firstUniqChar(string s) {
         /*
         1. listen
