@@ -66,12 +66,14 @@ public:
         */
         
         //Solución con array
-        int letters[26] = {};
+        int letters[26] = {}; //memory: O(1)
         
+        //runtime O(n)
         for(int i = 0; i < s.size(); i++){
             letters[s[i]-'a']++;
         }
         
+        //runtime O(n)
         for(int i = 0; i < s.size(); i++){
             if(letters[s[i]-'a']  == 1) return i;
         }
@@ -79,3 +81,8 @@ public:
         return -1;
     }
 };
+
+/*
+Terminado en 15 minutos. con ambas soluciones
+
+*/
