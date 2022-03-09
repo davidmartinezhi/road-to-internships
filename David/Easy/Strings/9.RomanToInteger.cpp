@@ -77,3 +77,37 @@ public:
     }
 };
     */
+    /*
+    
+    [10, 100] 90
+    [1000, 10, 100, 10] 1100
+    [1, 1] = 2
+    */
+        //Optimized
+        int result = romanToInt(s[s.size()-1]);
+    
+        for(int i = s.size()-1; i > 0; i--){
+            
+            int aux = romanToInt(s[i-1]);
+        
+            if( aux >= romanToInt(s[i])){
+                result += aux;
+            }else{
+                result -= aux;
+            }
+        }
+        return result;
+    }
+    
+    int romanToInt(char & c){
+        if(c == 'I') return 1;
+        if(c == 'V') return 5;
+        if(c == 'X') return 10;
+        if(c == 'L') return 50;
+        if(c == 'C') return 100;
+        if(c == 'D') return 500;
+        if(c == 'M') return 1000; 
+        
+        return 0;
+    }
+};
