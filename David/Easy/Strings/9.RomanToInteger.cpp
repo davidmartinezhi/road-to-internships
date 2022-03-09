@@ -84,8 +84,11 @@ public:
     [1, 1] = 2
     */
         //Optimized
+
+        //memory: O(1)
         int result = romanToInt(s[s.size()-1]);
-    
+
+        //runtime: O(n)
         for(int i = s.size()-1; i > 0; i--){
             
             int aux = romanToInt(s[i-1]);
@@ -111,3 +114,10 @@ public:
         return 0;
     }
 };
+
+/*
+
+//31 minutos brute force
+//38 minutos con optimized solution tmbn
+
+*/
