@@ -68,9 +68,10 @@ public:
         }
         
         
-        stack<char> stack;
+        stack<char> stack;  //memory: O(n)
+
         
-        //Traverse the string
+        //Traverse the string. runtime: O(n)
         for(int i = 0; i < s.size(); i++){
             
             //If the char is an open simbol
@@ -81,7 +82,7 @@ public:
             //If the character is a closing simbol
             if(s[i] == ')' || s[i] == ']' || s[i] == '}'){
                 
-                //Check if stack is empty
+                //Check if stack is empty. checa que no existan más closing que opening
                 if(stack.empty()) return false;
                 
                 char aux = stack.top(); //We grab the top
@@ -101,10 +102,17 @@ public:
             }
         }
         
-        
+        //Check if the stack is not empty. Checa que no existan más opening que closing
         if(!stack.empty()) return false;
         
         return true;
         
     }
 };
+
+/*
+Terminado en 28 minutos
+
+        //Talvez podría hacer 2 arrays uno de opening y otro de closing. Le agrego contadores según el signo
+        //Ahora solo comparo en base a index. De esa manera
+*/
