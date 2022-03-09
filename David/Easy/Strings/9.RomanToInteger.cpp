@@ -83,12 +83,11 @@ public:
     [1000, 10, 100, 10] 1100
     [1, 1] = 2
     */
+        
+    
         //Optimized
-
-        //memory: O(1)
         int result = romanToInt(s[s.size()-1]);
-
-        //runtime: O(n)
+    
         for(int i = s.size()-1; i > 0; i--){
             
             int aux = romanToInt(s[i-1]);
@@ -99,7 +98,37 @@ public:
                 result -= aux;
             }
         }
+        
         return result;
+        
+    
+    /*
+        //optimization version 2
+        unordered_map<char, int> nums;
+    
+        nums['I'] = 1;
+        nums['V'] = 5;
+        nums['X'] = 10;
+        nums['L'] = 50;
+        nums['C'] = 100;
+        nums['D'] = 500;
+        nums['M'] = 1000;
+        
+        int result = nums[s[s.size()-1]];
+        
+        for(int i = s.size()-1; i > 0; i--){
+        
+            if( nums[s[i-1]] >= nums[s[i]]){
+                result += nums[s[i-1]];
+                
+            }else{
+                result -= nums[s[i-1]];
+                
+            }
+        }
+        
+        return result;
+    */
     }
     
     int romanToInt(char & c){
