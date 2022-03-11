@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <vector>
 using namespace std;
 
@@ -114,20 +115,22 @@ public:
         int j = 0; //pointer for needle
         
         while(i < haystack.size()){
+
+            //Si los valores son iguales, recorre
             if(haystack[i] == needle[j]){
                 i++;
                 j++;
             }
-            else{
-                if(j == 0){
+            else{   //Si los valores son diferentes
+                if(j == 0){ //Si j esta en la posición 0, recorremos i++
                     i++;
-                } else{
+                } else{ //Si no está en la posición 0, lo mando al ultimo character valido. A su index del LPS
                     j = LPS[j-1];
                 }
             }
             
-            if(j == needle.size()){
-                return i-j;
+            if(j == needle.size()){ //Si j es del tamaño de needle
+                return i-j; //Regresamos i - j
             }
         }
         
@@ -135,3 +138,12 @@ public:
 
     }
 };
+/*
+Notas:
+28 min brute force
+
+Resulta que existe un algoritmo para solucionar esto
+KMP string matching algorithm, lo reduce a n el runtime
+
+Es muy bueno aprender algoritmos utiles como el de Kadane y este
+*/
