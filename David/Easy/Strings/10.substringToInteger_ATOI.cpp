@@ -104,7 +104,8 @@ public:
         //Read digits
         while(i < s.size() && isdigit(s[i])){
             
-            int aux = charToInt(s[i]);
+            //int aux = charToInt(s[i]);
+            int aux = s[i] - '0';   //Conversión de char digito a int
             
             
             if(!simbol){
