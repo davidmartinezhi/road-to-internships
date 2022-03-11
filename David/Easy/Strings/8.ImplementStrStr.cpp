@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class Solution {
@@ -39,7 +40,7 @@ public:
             we traverse that part.
             
             
-            runtime: O(n*m)
+            runtime: O(n+m)
             memory: O(1)
             
         5. walkthrough
@@ -82,5 +83,55 @@ public:
         
         return -1;  //needle not found
         */
+        
+        if(needle.size() == 0) return 0;
+        
+        //Set up LPS table
+        int n = needle.size();
+        vector<int> LPS(n, 0);
+        int prevLPS = 0, i = 1;
+        
+        while(i < n){
+            if(needle[i] == needle[prevLPS]){
+                LPS[i] = prevLPS + 1;
+                i++;
+                prevLPS++;
+            }
+            else{
+                if(prevLPS == 0){
+                    LPS[i] = 0;
+                    i++;
+                }
+                else{
+                    prevLPS = LPS[prevLPS-1];
+                }
+            }
+        }
+        
+        //Traverse the haystack
+        //Ponter at the beginning of each word
+        i = 0; //haystack
+        int j = 0; //pointer for needle
+        
+        while(i < haystack.size()){
+            if(haystack[i] == needle[j]){
+                i++;
+                j++;
+            }
+            else{
+                if(j == 0){
+                    i++;
+                } else{
+                    j = LPS[j-1];
+                }
+            }
+            
+            if(j == needle.size()){
+                return i-j;
+            }
+        }
+        
+        return -1;
+
     }
 };
