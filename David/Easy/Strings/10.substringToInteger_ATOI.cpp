@@ -80,10 +80,10 @@ public:
         int result = 0; //result variable
         bool simbol = true; //Simbol flag
         
-        //traverse pointer
+        //traversal pointer
         int i = 0;
         
-        //Traverse white space
+        //Traverse white space at the beginning
         while(s[i] == ' ' && i < s.size()) i++;
         
         //Check for simbol
@@ -94,27 +94,29 @@ public:
             } 
             else if(s[i] == '+'){
                 i++;
-            } 
-            
+            }  
         }
         
         //Traverse any leading 0
         while(i < s.size() && s[i] == '0') i++;
         
         //Read digits
+        //If i is in range and the character is a digit
         while(i < s.size() && isdigit(s[i])){
             
+            //Get the integer
             //int aux = charToInt(s[i]);
             int aux = s[i] - '0';   //Conversión de char digito a int
             
-            
+            //If the simbol is for a negative number
             if(!simbol){
-                if(result > 0){
+                if(result > 0){ //If result is positive, change is to negative
                     result *= -1;
                 }
-                aux *= -1;
+                aux *= -1;//Convert aux to a negative number
             }
             
+
             //Check max and min limits
             if(( result < INT_MIN/ 10) ||  result == INT_MIN/10 && aux < -8){
                 return INT_MIN;
@@ -127,14 +129,15 @@ public:
             
             //Add char to result
             result = (result * 10) + aux;
-            i++;
+            i++;    
         }
 
         return result;
+
     }
     
     int charToInt(char & c){
-        
+        //Return the integer value of the digit
         if(c == '1') return 1;
         if(c == '2') return 2;
         if(c == '3') return 3;
