@@ -89,9 +89,10 @@ public:
         
         //Set up LPS table
         int n = needle.size();
-        vector<int> LPS(n, 0);
+        vector<int> LPS(n, 0); //Memory: O(m) 
         int prevLPS = 0, i = 1;
         
+        //Runtime: O(m)
         while(i < n){
             if(needle[i] == needle[prevLPS]){
                 LPS[i] = prevLPS + 1;
@@ -114,23 +115,22 @@ public:
         i = 0; //haystack
         int j = 0; //pointer for needle
         
+        //Runtime: O(n)
         while(i < haystack.size()){
-
-            //Si los valores son iguales, recorre
             if(haystack[i] == needle[j]){
                 i++;
                 j++;
             }
-            else{   //Si los valores son diferentes
-                if(j == 0){ //Si j esta en la posición 0, recorremos i++
+            else{
+                if(j == 0){
                     i++;
-                } else{ //Si no está en la posición 0, lo mando al ultimo character valido. A su index del LPS
+                } else{
                     j = LPS[j-1];
                 }
             }
             
-            if(j == needle.size()){ //Si j es del tamaño de needle
-                return i-j; //Regresamos i - j
+            if(j == needle.size()){
+                return i-j;
             }
         }
         
