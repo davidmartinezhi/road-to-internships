@@ -76,6 +76,9 @@ public:
                 MIN_LIMIT
             
         */
+
+       //runtime: O(n)
+       //memory: O(1)
         
         int result = 0; //result variable
         bool simbol = true; //Simbol flag
@@ -151,3 +154,11 @@ public:
         return 0;
     }
 };
+
+/*
+//Conversión de char digito a int es con:
+                                            char - '0'
+//50 minutos
+//Hubo confusión en el trabajo con limits, me hubiera detenido a pensar en como hacer congruencia
+//Hice muchos movimientos, cuando pude frenarme y resolverlo enseguida
+*/
