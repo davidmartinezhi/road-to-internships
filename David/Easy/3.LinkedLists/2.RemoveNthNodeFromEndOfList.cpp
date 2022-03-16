@@ -61,6 +61,8 @@ public:
             
         */
         
+       //runtime: O(2n) -> O(n)
+
         //traverse to get the size
         int sz = 0;
         
@@ -73,41 +75,51 @@ public:
         
         //check if n is the beginning of the list
         if(n == sz){
-            aux = head;
-            head = head->next;
-            delete aux;
+            aux = head; 
+            head = head->next;  //Head is the second element now
+            delete aux; //Delete previous head
             return head;
         }
         
         //Runtime: O(n)
+
         //check if n is the end of the list
         if(n == 1){
             aux = head;
             int count = 0;
-            while(count != sz - 2){
+            while(count != sz - 2){ //Get to the previous to last element
                 count++;
                 aux = aux->next;
             }
-            ListNode * aux2 = aux;
-            aux = aux->next;
-            aux2->next = nullptr;
-            delete aux;
+            ListNode * aux2 = aux;  //Auxiliary pointer to the prev pointer where we are going to delete
+            aux = aux->next;    //Aux moves to the node we'll remove
+            aux2->next = nullptr;   //Prev now points to nullptr
+            delete aux; //We delete aux
             return head;
         }
         
      //check if it is in the body
         aux = head;
         int count = 0;
-        while(count != sz - n){
+        while(count != sz - n){ //We move to the element we are going to remove
             count++;
             aux = aux->next; 
         }
         
-        ListNode * aux2 = aux->next;
-        aux->val = aux->next->val;
+        ListNode * aux2 = aux->next;    //Aux node to the next node, from the one we are going to delete
+        aux->val = aux->next->val;  //We copy all data
         aux->next = aux->next->next;
-        delete aux2;
+        delete aux2;    //We delete the next node
         
         return head;
     }
 };
+
+/*
+Nota:
+    Terminado en 20-25 minutos
+    Para los 17 minutos que tenía para terminarlo,lo hice bastante bien
+    Comence a programarlo cuando quedaban 7 minutos, entonces no estuvo mal
+        En lo que más tiempo tarde fue en el testing de logica, para saber que nodo iba a eliminar
+
+*/
