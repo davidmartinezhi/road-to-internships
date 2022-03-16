@@ -63,3 +63,9 @@ public:
         return prevNode;  
     }
 };
+
+/*
+Notas:
+    -16 minutes
+    runtime: O(n)
+*/
