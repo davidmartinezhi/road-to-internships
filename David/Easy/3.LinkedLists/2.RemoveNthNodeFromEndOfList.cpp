@@ -112,6 +112,70 @@ public:
         delete aux2;    //We delete the next node
         
         return head;
+
+        /*
+        //Solución donde recorro una vez la lista y ya
+        
+        //nodo Front, que va a recorrer la lista hasta llegar a nullptr
+        ListNode * front = head;
+        
+        //Nodo auxiliar que eliminara el nodo seleccionado
+        ListNode * aux = head;
+        
+                
+        //Recorro el front, n veces
+        for(int i = 0; i <= n; i++){
+            
+            //Si front = nullptr, estamos en el fin de la linkedlist y el dato a borrar es el head
+            if(front == nullptr){
+                
+                
+                head = head->next;
+                delete aux; //Elimino el head anterior
+                
+                return head;  //Regreso la linkedlist con el nuevo head
+                
+                //Si la lista es de un elemento, regresa nullptr
+                
+                //Si la lista es de mas elementos, regresa con nuevo head
+            }
+            
+            if(i != n){ //No recorre en la ultima vuelta
+                front = front->next;    //Recorro front 
+            }
+                   
+        }
+ 
+        //Si N es diferente al numero de nodos en la linkedlist
+        
+        //Puedo recorrer front una vez
+        front = front->next;
+        //Luego ya no usar aux2, solo aux normal pero apuntando a next next
+        
+        //Si tenemos que recorrer
+        while(front != nullptr){    //Mientras no lleguemos al final recorro
+            front = front->next;
+            aux = aux->next;
+        }
+        
+        //Aux ahora se queda un valor antes del ultimo
+        
+        //Aquí ya recorrí
+        //Ahora checo si debo eliminar el ultimo nodo
+        ListNode * next = aux->next;    //Nodo que voy a borrar
+        if(n == 1){
+            aux->next = nullptr;    //ahora aux apunta a nullptr
+            delete next; //Elimino next
+        }
+        else{
+            //Si es un nodo en el cuerpo de la linked list
+            aux->next = next->next;
+            //Elimino next
+            delete next;
+        }
+        return head;   
+        
+        */
     }
 };
 
