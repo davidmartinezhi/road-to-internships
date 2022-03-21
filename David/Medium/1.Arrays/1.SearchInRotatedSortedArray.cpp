@@ -77,6 +77,38 @@ public:
 
         int pivot = (i+j)/2; 
         
+        if(j >= i){ //While j is greater or equal than i
+            
+            if(j == i) return pivot;
+            
+        //left side
+            if(nums[i] <= nums[pivot]){
+                if(nums[j] < nums[pivot]){
+                    //i <= pivot > j
+                    return findPivot(nums, pivot+1, j);
+                }
+                else{
+                    //i <= pivot < j
+                    return i;
+                }
+            }
+        //right side
+            else{
+                // i > pivot 
+                return findPivot(nums, i, pivot);
+            }   
+        }
+        
+        return -1;
+    }
+    
+/*
+ 
+    int findPivot(const vector<int> & nums, int i, int j){  //listo
+        //Find pivot
+
+        int pivot = (i+j)/2; 
+        
         if(i == j) return pivot;    //If i == j, return pivot
         
         //pivot is on left side
@@ -101,6 +133,8 @@ public:
             return pivot;
         }
     }
+    
+*/
     
     
     bool hasPivot(const vector<int> & nums){
