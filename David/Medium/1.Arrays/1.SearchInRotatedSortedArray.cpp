@@ -129,3 +129,13 @@ public:
         return -1;
     }
 };
+/*
+Nota:
+    Me gusto mucho este problema, llevaba 6 meses sin ver binary search.
+    -A los 15, 20 minutos ya tenía en mente como solucionarlo, me tarde por la implemnetación. No recordaba bien como hacerlo y tuve mucha prueba y error
+    Debería practicar binary earch más seguido. Iterativo y recursivo.
+
+    -A los 45 minutos, ya tenía el binary search creado, la función para saber si tenía pivote y solo ten´ía que ajustar la parte de findPivot.
+    Me tarde como 30 minutos más, haciendo que jalara el findPivot. Pero salio.
+
+*/
