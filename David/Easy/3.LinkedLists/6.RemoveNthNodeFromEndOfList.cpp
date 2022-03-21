@@ -112,3 +112,10 @@ public:
         return head;
     }
 };
+
+/*
+Nota: 
+    20-25 minutos
+    Runtime: O(2n) = O(n)
+    memory: O(1)
+*/
