@@ -46,10 +46,11 @@ public:
         //If there is more than 1 element in the array
         int pivot;
         
-        if(hasPivot(nums)){ //If the array has pivot
+        if(hasPivot(nums)){ //If the array has pivot, runtime O(1)
             
-            pivot = findPivot(nums, 0, nums.size()-1);  //We find it
+            pivot = findPivot(nums, 0, nums.size()-1);  //We find it, runtime O(log n)
             
+            //runtime: O log n
             if(target == nums[pivot]){  //If the value on pivot is ther target, we return that index
                 return pivot;
             }
@@ -62,7 +63,7 @@ public:
             }
         }
         else{
-            //If there is no pivot, we implement a normal binary search
+            //If there is no pivot, we implement a normal binary search, runtime O log n
             pivot = binarySearch(nums, 0, nums.size()-1, target);
         }
        
@@ -72,7 +73,7 @@ public:
 
     
     int findPivot(const vector<int> & nums, int i, int j){  //listo
-        //Find pivot
+        //Find pivot, runtime O( log n)
 
         int pivot = (i+j)/2; 
         
@@ -103,14 +104,14 @@ public:
     
     
     bool hasPivot(const vector<int> & nums){
-        //Checks if the array has pivot
+        //Checks if the array has pivot, runtime O(1)
         if(nums[0] < nums[nums.size()-1]) return false;
         return true;
     }
     
     
     int binarySearch(const vector<int> & nums, int i, int j, int x){    //listo
-        //Binary search
+        //Binary search, runtime O( log n )
         int pivot = (i + j) / 2;
         
         if(j >= i){
