@@ -121,4 +121,10 @@ public:
         return true;
     }
 };
-//40-45 minutes 
+/*
+Nota: 
+time: 40-45 minutes
+runtime: O(n)
+memory: O(1)
+
+*/
