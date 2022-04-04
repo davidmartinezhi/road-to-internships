@@ -7,4 +7,4 @@ To Do:
 -Checar ejercicios para practicar recorridos de matrices (Vamos mejorando, pero aún falta fluides en este tipo de problemas)
 -Agregar secciones sobre traversals y estructuras de datos.
 -Investigar sobre Greedy Algorithms
--Investigar, cuando utilizar Kadane's algorithm o dynamic window technique
+-Investigar, cuando utilizar Kadane's algorithm o dynamic window technique: listo
