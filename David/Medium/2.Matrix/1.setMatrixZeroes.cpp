@@ -122,6 +122,10 @@ public:
 };
 /*
 Notas:
+    Terminado en los 45 minutos
+    Runtime: O(m*n)
+    Space: O(1)
+
     -La idea sobre como hacerlo, lo saque rapido
     -Ya sabía como solucionarlo y tenía un error al actualizar la primer fila y columna
         Solo que por querer resolverla de golpe, perdí tiempo.
